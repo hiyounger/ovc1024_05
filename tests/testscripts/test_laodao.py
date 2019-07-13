@@ -6,7 +6,6 @@ from tests.ovc1024.laodaopage import LaoDaoPage
 from ddt import ddt, file_data
 
 
-
 @ddt
 class Test_laodao(unittest.TestCase):
     @classmethod
