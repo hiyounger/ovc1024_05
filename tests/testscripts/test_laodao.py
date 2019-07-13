@@ -1,0 +1,76 @@
+#encoding:utf-8
+import unittest
+from selenium import webdriver
+import time
+from tests.ovc1024.laodaopage import LaoDaoPage
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.common.by import By
+
+class Test_laodao(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Firefox()
+        cls.driver = webdriver.Firefox()
+        cls.laodaopage = LaoDaoPage(cls.driver)
+        cls.laodaopage.open()
+        data = {
+            'email': '1234@qq.com',
+            'password': '1111'
+        }
+        cls.laodaopage.denglu(data)
+        cls.laodaopage.dengdai()
+    # def setUp(self):
+    #     self.driver = webdriver.Firefox()
+    #     self.laodaopage = LaoDaoPage(self.driver)
+    #     self.laodaopage.open()
+    #     data={
+    #         'email':'1234@qq.com',
+    #         'password':'1111'
+    #     }
+    #     self.laodaopage.denglu(data)
+    #     self.laodaopage.dengdai()
+    # 点击首页，跳转到首页
+    def test_laodao_case001(self):
+        self.laodaopage.find_shouye
+        exp_result='http://47.92.220.226:8000/bbs2/'
+        act_result=self.laodaopage.test_return_shouye
+        self.assertEqual(exp_result,act_result,"exp_result:=%s act_result:=%s"%(act_result,exp_result))
+        # print self.driver.current_url
+#     文本框中输入文字，点击唠叨发送
+    def test_laodao_case002(self):
+        self.laodaopage.return_laodao
+        self.laodaopage.send_laodao
+        self.laodaopage.wait
+        act_result=self.laodaopage.test_laodao
+        exp_result=u'唠叨测试'
+        self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
+# 点击用户头像跳转到用户界面
+    def test_touxiang_case003(self):
+        self.laodaopage.return_laodao
+        self.laodaopage.click_imge
+        act_result=self.laodaopage.test_click_imge
+        exp_result=u'粉丝'
+        self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
+
+#点击“回复”，成功跳转到该唠叨回复页面点击文本框输入要回复的数值，点击回复.成功回复唠叨
+    def test_huifu_case004(self):
+        self.laodaopage.return_laodao
+        self.laodaopage.huifu_massage
+        act_result=self.laodaopage.test_huifu
+        exp_result=u'UI自动化回复测试成功'
+        self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
+# 点击页面下方数字,成功跳转至点击页面
+    def test_tiaozhuanPage_case005(self):
+        self.laodaopage.return_laodao
+        self.laodaopage.tiaozhuanPage()
+        act_result=self.laodaopage.test_tiaozhuan
+        exp_result='http://47.92.220.226:8000/bbs2/index.php?app=weibo&ac=index&page=2'
+        self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
+
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()
