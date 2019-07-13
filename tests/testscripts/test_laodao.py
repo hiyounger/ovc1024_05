@@ -3,9 +3,14 @@ import unittest
 from selenium import webdriver
 import time
 from tests.ovc1024.laodaopage import LaoDaoPage
+from ddt import ddt, file_data
 
+
+
+@ddt
 class Test_laodao(unittest.TestCase):
     @classmethod
+    @file_data("test_laodao.json")
     def setUpClass(cls):
         cls.driver = webdriver.Firefox()
         cls.driver = webdriver.Firefox()
@@ -20,6 +25,10 @@ class Test_laodao(unittest.TestCase):
             cls.laodaopage.dengdai()
         except:
             print ("网速不好，重新测试")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
     # def setUp(self):
     #     self.driver = webdriver.Firefox()

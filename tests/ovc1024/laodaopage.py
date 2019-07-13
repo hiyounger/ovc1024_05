@@ -2,16 +2,16 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
+from laodao_config import url
 
 
 class LaoDaoPage():
-    url = "http://47.92.220.226:8000/bbs2/index.php?app=weibo"
 
     def __init__(self, driver):
         self.driver = driver
 
     def open(self):
-        self.driver.get(self.url)
+        self.driver.get(url)
 
     def denglu(self, data):
         self.driver.find_element_by_xpath('//div[3]/a[1]').click()
