@@ -9,7 +9,8 @@ class ArtilePage():
         self.driver.get(self.url)
 
     def register(self,info):
-
+        register_bt = self.driver.find_element_by_xpath(u"//nav/div/div[3]/a[1]")
+        register_bt.click()
         self.element_email_input.send_keys(info[u'email'])
         self.element_password_input.send_keys(info[u'password'])
         element_submit = self.driver.find_element_by_xpath(u'//*[@id="comm-submit"]')

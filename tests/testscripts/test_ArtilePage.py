@@ -1,9 +1,9 @@
 # encoding:utf-8
 import unittest
-import json
 from selenium import webdriver
 import time
 from tests.ovc1024.ArtilePage import ArtilePage
+
 
 class TestArtile(unittest.TestCase):
     @classmethod
@@ -12,14 +12,15 @@ class TestArtile(unittest.TestCase):
 
 
     def setUp(self):
+        self.driver = webdriver.Firefox()
         self.locationpage = ArtilePage(self.driver)
         self.locationpage.open()
 
+    def tearDown(self):
+        self.driver.quit()
+
 #1.登录
     def test_resigercase01(self):
-        register_bt = self.driver.find_element_by_xpath(u"//nav/div/div[3]/a[1]")
-        register_bt.click()
-
         info = { u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
         self.locationpage.register(info)
         time.sleep(4)
@@ -31,7 +32,9 @@ class TestArtile(unittest.TestCase):
 
 # 2.跳转到文章页面
     def test_jumpartilecase02(self):
-
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -42,7 +45,9 @@ class TestArtile(unittest.TestCase):
 
 # 3.跳回到首页面
     def test_backindexcase03(self):
-
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -56,7 +61,9 @@ class TestArtile(unittest.TestCase):
 
 #4.通过文章标题点击文章
     def test_articletitlecase04(self):
-
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -71,7 +78,9 @@ class TestArtile(unittest.TestCase):
 
 #5.点击上一篇文章名
     def test_lastarticlecase05(self):
-
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -89,7 +98,9 @@ class TestArtile(unittest.TestCase):
 
 #6.点击下一篇文章名
     def test_nextarticlecase06(self):
-
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -107,7 +118,9 @@ class TestArtile(unittest.TestCase):
 
 #7.点击最新文章
     def test_latestarticleecase07(self):
-
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -126,7 +139,9 @@ class TestArtile(unittest.TestCase):
 
 #8.点击一周热门
     def test_populararticlecase08(self):
-
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -140,6 +155,9 @@ class TestArtile(unittest.TestCase):
 
 #9.通过点击全部，跳到显示所有文章的页面
     def test_alltarticleecase09(self):
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -157,6 +175,9 @@ class TestArtile(unittest.TestCase):
 
 #10.通过点击查看全文来查看文章
     def test_searcharticleecase10(self):
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
@@ -171,6 +192,9 @@ class TestArtile(unittest.TestCase):
 
 #11..翻页
     def test_searcharticleecase11(self):
+        info = {u'email': u'487296792@qq.com', u'password': u'zhang1314520'}
+        self.locationpage.register(info)
+        time.sleep(4)
         article_link = self.driver.find_element_by_xpath(u"//div[1]/div/a[3]")
         article_link.click()
 
