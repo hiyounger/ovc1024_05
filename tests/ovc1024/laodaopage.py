@@ -73,3 +73,12 @@ class LaoDaoPage():
     @property
     def test_tiaozhuan(self):
         return self.driver.current_url
+    # 评价消息
+    @property
+    def pingjia(self):
+        self.driver.find_element_by_xpath('//ul/li[1]/span[2]/span[3]/a').click()
+        self.driver.find_element_by_xpath('//div[2]/form/textarea').send_keys(u'UI测试评价成功')
+        self.driver.find_element_by_xpath('//div[2]/form/div/button').click()
+    # 点击用户名
+    def click_name(self):
+        self.driver.find_element_by_xpath('//ul/li[2]/div[1]/a').click()

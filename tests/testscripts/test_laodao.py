@@ -19,7 +19,10 @@ class Test_laodao(unittest.TestCase):
             'password': '1111'
         }
         cls.laodaopage.denglu(data)
-        cls.laodaopage.dengdai()
+        try:
+            cls.laodaopage.dengdai()
+        except:
+            print ("网速不好，重新测试")
     # def setUp(self):
     #     self.driver = webdriver.Firefox()
     #     self.laodaopage = LaoDaoPage(self.driver)
@@ -67,6 +70,22 @@ class Test_laodao(unittest.TestCase):
         act_result=self.laodaopage.test_tiaozhuan
         exp_result='http://47.92.220.226:8000/bbs2/index.php?app=weibo&ac=index&page=2'
         self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
+# 点击评价能够跳转到评价页面，并能够评价
+    def test_pingjia_case006(self):
+        self.laodaopage.return_laodao
+        self.laodaopage.pingjia
+        exp_result=u'UI测试评价成功'
+        act_result=self.laodaopage.test_huifu
+        self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
+#     点击用户名，跳转到用户信息界面
+    def test_name_case007(self):
+        self.laodaopage.return_laodao
+        self.laodaopage.click_name()
+        act_result = self.laodaopage.test_click_imge
+        exp_result = u'粉丝'
+        self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
+
+
 
 
 
