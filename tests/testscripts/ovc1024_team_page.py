@@ -35,6 +35,24 @@ class TeamPage():
         element = self.driver.find_element_by_id(u"comm-submit")
         return element
 
+    @property
+    def ovc_team(self):
+        element = self.driver.find_element_by_xpath(u"//div[1]/div/a[2]")
+        return element
+
+    @property
+    def ovc_team_info01(self):
+        element = self.driver.find_element_by_xpath(u"//div/div/div[2]/div[2]/div/div[2]/a")
+        return element
+
+    @property
+    def ovc_team_info02(self):
+        element = self.driver.find_element_by_xpath(u"//div[2]/div[2]/div/div[2]/a")
+        return element
+
+
+
+
 
 
 

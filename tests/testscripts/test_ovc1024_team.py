@@ -12,6 +12,7 @@ class MyTestCase(unittest.TestCase):
     @classmethod
     def setUp(self):
         self.driver = webdriver.Firefox()
+        # self.driver = webdriver.Firefox()
         self.team_page = TeamPage(self.driver)
         self.team_page.open()
     def tearDown(self):
@@ -36,6 +37,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
+        self.team_page.ovc_team.click()
 
     def test_home_case03(self):
         register_data = {
@@ -46,6 +48,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
+        self.team_page.ovc_team.click()
         home_page = self.driver.find_element_by_xpath(u"//ol/li[1]/a")
         home_page.click()
 
@@ -58,6 +61,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.XPATH, u"//div[1]/div/a[2]"), u"小组"))
+        self.team_page.ovc_team.click()
         creat_team = self.driver.find_element_by_link_text(u"创建小组")
         creat_team.click()
         team_name = self.driver.find_element_by_name(u"groupname")
@@ -78,6 +82,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
+        self.team_page.ovc_team.click()
         page_bt = self.driver.find_element_by_xpath(u"//div[3]/div/div[1]/div/div")
         page_bt.click()
 
@@ -90,9 +95,8 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
-        team_info01 = self.driver.find_element_by_css_selector(
-            u"div.col-md-6:nth-child(2) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > img:nth-child(1)")
-        team_info01.click()
+        self.team_page.ovc_team.click()
+        self.team_page.ovc_team_info01.click()
 
     def test_team_info_case0602(self):
         register_data = {
@@ -103,8 +107,8 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
-        team_info2 = self.driver.find_element_by_xpath(u"//div[2]/div[2]/div/div[2]/a")
-        team_info2.click()
+        self.team_page.ovc_team.click()
+        self.team_page.ovc_team_info02.click()
 
     def test_team_entry_caose07(self):
         register_data = {
@@ -115,6 +119,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
+        self.team_page.ovc_team.click()
         team_info2 = self.driver.find_element_by_xpath(u"//div[2]/div[2]/div/div[2]/a")
         team_info2.click()
         join_or_quit_team = self.driver.find_element_by_xpath(u"//div[1]/div/div[2]/div/span/a")
@@ -129,8 +134,8 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
-        team_info2 = self.driver.find_element_by_xpath(u"//div[2]/div[2]/div/div[2]/a")
-        team_info2.click()
+        self.team_page.ovc_team.click()
+        self.team_page.ovc_team_info02.click()
         issuance = self.driver.find_element_by_link_text(u"发布帖子")
         issuance.click()
 
@@ -143,6 +148,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
+        self.team_page.ovc_team.click()
         hot_note = self.driver.find_element_by_xpath(u"//li[4]/div[1]/a")
         hot_note.click()
 
@@ -155,6 +161,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
+        self.team_page.ovc_team.click()
         hot_note_team = self.driver.find_element_by_xpath(u"//li[4]/div[2]/div[1]/a")
         hot_note_team.click()
 
@@ -167,6 +174,7 @@ class MyTestCase(unittest.TestCase):
         self.team_page.register(register_data)
         self.team_page.ovc_login.click()
         WebDriverWait(self.driver,30).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
+        self.team_page.ovc_team.click()
         recently_team = self.driver.find_element_by_xpath(u"//div[2]/div/ul/li[1]/a")
         recently_team.click()
 
