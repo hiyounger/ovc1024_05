@@ -45,7 +45,7 @@ class MyTestCase(unittest.TestCase):
     # 登录成功之后等待
     def dengdai(self):
         WebDriverWait(self.driver, 3.5).until(
-            expected_conditions.text_to_be_present_in_element((By.XPATH, '/html/body/nav/div/div[4]/a'), u'W_ang'))
+            expected_conditions.text_to_be_present_in_element((By.XPATH, '/html/body/nav/div/div[4]/a'), u'W_ang_95'))
 
     #首页点击用户，在用户积分榜点击用户用户名查看用户对应积分
     def test_user_name(self):
