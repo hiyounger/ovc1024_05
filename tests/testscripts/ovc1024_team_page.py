@@ -1,7 +1,5 @@
-#encoding:tuf-8
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.by import By
+#encoding:utf-8
+
 
 class TeamPage():
 
@@ -37,8 +35,7 @@ class TeamPage():
         element = self.driver.find_element_by_id(u"comm-submit")
         return element
 
-    @property
-    def ovc_team(self):
-        element = WebDriverWait(self.driver,5).until(expected_conditions.text_to_be_present_in_element((By.XPATH,u"//div[1]/div/a[2]"),u"小组"))
-        return element
+
+
+
 
