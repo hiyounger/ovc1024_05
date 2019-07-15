@@ -12,7 +12,6 @@ class Test_laodao(unittest.TestCase):
     @file_data("test_laodao.json")
     def setUpClass(cls):
         cls.driver = webdriver.Firefox()
-        cls.driver = webdriver.Firefox()
         cls.laodaopage = LaoDaoPage(cls.driver)
         cls.laodaopage.open()
         data = {
@@ -51,7 +50,10 @@ class Test_laodao(unittest.TestCase):
     def test_laodao_case002(self):
         self.laodaopage.return_laodao
         self.laodaopage.send_laodao
-        self.laodaopage.wait
+        try:
+            self.laodaopage.wait
+        except:
+            print ("网络卡顿。")
         act_result = self.laodaopage.test_laodao
         exp_result = u'唠叨测试'
         self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
