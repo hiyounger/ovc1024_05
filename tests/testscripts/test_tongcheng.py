@@ -64,7 +64,7 @@ class TestTongCheng(unittest.TestCase):
         self.assertEqual(act_result, exp_result)
 
     #case04_01点击图片，结果是进入到该图片所在相册的页面
-    #这个测试未实现，无法确定跳转的页面一定是图片对应的那个页面，无法通过src属性确定是对应的图片
+    #
 
     # def test_case04_01(self):
     #     exp_result = self.TongCheng.ele_photo.get_attribute("src")
@@ -82,7 +82,7 @@ class TestTongCheng(unittest.TestCase):
         self.assertEqual(act_result, exp_result)
 
     #case05_02点击发帖人用户名，结果是进入发帖人首页
-    # 这个功能有bug
+    #
 
     # def test_case05_02(self):
     #     exp_result = self.TongCheng.ele_t_phtot.get_attribute("alt")
