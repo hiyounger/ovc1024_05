@@ -1,0 +1,1 @@
+url= "http://47.92.220.226:8000/bbs2/index.php?app=weibo"
