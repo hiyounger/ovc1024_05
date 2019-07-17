@@ -2,7 +2,8 @@
 import unittest
 from selenium import webdriver
 from tests.ovc1024.tongcheng_page import TongCheng
-import time
+from tests.ovc1024.register import register_page
+
 
 
 class TestTongCheng(unittest.TestCase):
@@ -23,6 +24,16 @@ class TestTongCheng(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
+    # def test_case01(self):
+    #     self.TongCheng.ele_longin.click()
+    #     Register_Page=register_page(self.driver)
+    #     if_open,error_msg=Register_Page.if_page_open_success()
+    #     print "[debug] open:%s"%if_open
+    #     print "[debug] msg:%s"%str(error_msg)
+    #     # self.assertTrue(if_open,str(error_msg))
+    #     self.assertEqual(True,if_open,str(error_msg))
+
+
     # #case01_01点击北京下面的加入按钮，结果会进入到北京同城的页面
     # def test_case01_01(self):
     #     self.TongCheng.ele_beijing.click()
@@ -31,14 +42,14 @@ class TestTongCheng(unittest.TestCase):
     #     exp_result = (u"北京")
     #     self.assertEqual(act_result, exp_result)
     #
-    # #case01_02点击武汉下面的加入按钮，结果会进入到武汉同城的页面
+    #case01_02点击武汉下面的加入按钮，结果会进入到武汉同城的页面
     # def test_case01_02(self):
     #     self.TongCheng.ele_wuhan.click()
-    #     time.sleep(4)
+    #     # time.sleep(4)
     #     act_result = self.TongCheng.ele_wuhan_img.get_attribute("alt")
     #     exp_result = (u"武汉")
     #     self.assertEqual(act_result, exp_result)
-    #
+
     # #case02_01点击退出同城，结果会回到加入同城前的界面
     # def test_case02_01(self):
     #     self.TongCheng.ele_exit_tongcheng.click()
