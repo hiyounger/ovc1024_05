@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from laodao_config import url
-
+# from laodao_opean_base import if_pageOpean_juage_base
 
 class LaoDaoPage():
 
@@ -21,9 +21,12 @@ class LaoDaoPage():
 
     # 登录成功之后等待
     def dengdai(self):
-        WebDriverWait(self.driver, 3.5).until(
-            expected_conditions.text_to_be_present_in_element((By.XPATH, '//nav/div/div[4]/a'), u'闫振兴'))
-        # print ('登录跳转成功')
+        try:
+            WebDriverWait(self.driver, 3.5).until(
+                expected_conditions.text_to_be_present_in_element((By.XPATH, '//nav/div/div[4]/a'), u'闫振兴'))
+            # print ('登录跳转成功')
+        except:
+            print ("网速不好，重新测试")
 
     #     点击登录跳转到首页属性
     @property
@@ -49,9 +52,11 @@ class LaoDaoPage():
     # 发送成功之后等待
     @property
     def wait(self):
-        WebDriverWait(self.driver, 3.5).until(
-            expected_conditions.text_to_be_present_in_element((By.XPATH, '//div[2]/div[1]/a'), u'闫振兴'))
-
+        try:
+            WebDriverWait(self.driver, 3.5).until(
+                expected_conditions.text_to_be_present_in_element((By.XPATH, '//div[2]/div[1]/a'), u'闫振兴'))
+        except:
+            print ("网络卡顿。")
     # 测试唠叨有没有发布成功
     @property
     def test_laodao(self):
@@ -98,3 +103,5 @@ class LaoDaoPage():
     # 点击用户名
     def click_name(self):
         self.driver.find_element_by_xpath('//ul/li[2]/div[1]/a').click()
+
+

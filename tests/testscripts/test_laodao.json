@@ -1,8 +1,8 @@
 {
-  "test_case_001":{
+  "test_case_001": {
     "data": {
-    "email":  "1234@qq.com",
-    "password": "1111"
+      "email": "1234@qq.com",
+      "password": "1111"
     }
   }
 }

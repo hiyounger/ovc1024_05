@@ -148,7 +148,7 @@ class TestArtile(unittest.TestCase):
         popular_article = self.driver.find_element_by_xpath(u"//div[3]/div[2]/div[2]/div[2]/div[2]/div/ul/li/a")
         popular_article.click()
 
-        exp = u"hahhah"
+        exp = u"rd24d14"
         serch = self.driver.find_element_by_xpath(u"//div[3]/div[2]/div[1]/div[1]/div/h1")
         act = serch.text
         self.assertEqual(exp, act)

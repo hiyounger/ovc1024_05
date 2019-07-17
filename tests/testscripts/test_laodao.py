@@ -1,9 +1,9 @@
 # encoding:utf-8
 import unittest
 from selenium import webdriver
-import time
 from tests.ovc1024.laodaopage import LaoDaoPage
 from ddt import ddt, file_data
+from tests.ovc1024 import laodao_config
 
 
 @ddt
@@ -12,40 +12,21 @@ class Test_laodao(unittest.TestCase):
     @file_data("test_laodao.json")
     def setUpClass(cls):
         cls.driver = webdriver.Firefox()
-        cls.driver = webdriver.Firefox()
         cls.laodaopage = LaoDaoPage(cls.driver)
         cls.laodaopage.open()
-        data = {
-            'email': '1234@qq.com',
-            'password': '1111'
-        }
-        cls.laodaopage.denglu(data)
-        try:
-            cls.laodaopage.dengdai()
-        except:
-            print ("网速不好，重新测试")
+        cls.laodaopage.denglu(laodao_config.data)
+        cls.laodaopage.dengdai()
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
-    # def setUp(self):
-    #     self.driver = webdriver.Firefox()
-    #     self.laodaopage = LaoDaoPage(self.driver)
-    #     self.laodaopage.open()
-    #     data={
-    #         'email':'1234@qq.com',
-    #         'password':'1111'
-    #     }
-    #     self.laodaopage.denglu(data)
-    #     self.laodaopage.dengdai()
     # 点击首页，跳转到首页
     def test_laodao_case001(self):
         self.laodaopage.find_shouye
         exp_result = 'http://47.92.220.226:8000/bbs2/'
         act_result = self.laodaopage.test_return_shouye
         self.assertEqual(exp_result, act_result, "exp_result:=%s act_result:=%s" % (act_result, exp_result))
-        # print self.driver.current_url
 
     #     文本框中输入文字，点击唠叨发送
     def test_laodao_case002(self):
